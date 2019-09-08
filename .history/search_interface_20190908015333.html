@@ -1,0 +1,76 @@
+<html>
+    <title>
+        Swap RC
+    </title>
+    <body>
+            Search
+            <br>
+            <table border=4 width=100% height=95%> 
+                <tr border=4>
+                    <td width = 80% border=2 bgcolor="#ccffff" valign=top height=100%>
+                        [
+                        <a href="./add_interface.html">Add</a> |
+                        <b><a href="./search_interface.html">Search</a></b>
+                        ]
+                        <form>
+                        <br>
+                        <table width=100% height=100% bgcolor=blue>
+                            <tr>
+                                <td valign=top bgcolor="#ffaaff">
+                                    Search:
+                                    <input type=text name="search">
+                                    <input type=submit name="submit">
+                                    <br>
+                                    <select name="category">
+                                            <option value = "frame">Frame</option>    
+                                            <option value = "fc">Flight Controller</option>
+                                            <option value = "esc">ESC</option>
+                                            <option value = "motor">Motors</option>
+                                            <option value = "propeller">Propeller</option>
+                                            <option value = "fpv_camera">FPV Camera</option>
+                                            <option value = "transmitter">Transmitter</option>
+                                            <option value = "antenna">Antenna</option>
+                                            <option value = "vtx">VTX</option>
+                                            <option value = "receiver">Receiver</option>
+                                            <option value = "battery">Battery</option>
+                                            <option value = "pdb">PDB</option>
+                                            <option value = "hardware">Hardware</option>
+                                            <option value = "3d_print">3D Prints</option>
+                                            <option value = "goggles">FPV Goggles</option>
+                                            <option value = "video_monitors">FPV Video Monitors</option>
+                                            <option value = "video_receivers">FPV Video Receivers</option>
+                                            <option value = "swag">Swag</option>
+                                    </select>
+                                    <br><br>
+                                    <select name="manufacturer">
+                                        <option value ="tbs">TBS</option>
+                                        <option value = "immersion">Immersion</option>                                        
+                                    </select>
+                
+                                    <br><br>
+                                    <select name="mah">
+                                        <option value = "2000">2000-3000</option>
+                                        <option value = "4000">3000-4000</option>
+                                    </select>
+                                    <br>
+                                    <br>
+                                    
+                                </td>
+                                <td valign=top bgcolor="#cc33ff">
+                                    Search results
+                                </td>
+                            </tr>
+                        </table>
+                        </form>
+                        
+                    </td>
+                    <td border=2 bgcolor="ffccccc" valign=top height=100%>
+                        <frameset height=100%>
+                                <iframe src="./frame_users.html">
+                        </frameset>
+                    </td>
+                </tr>
+            </table>
+    </body>
+
+</html>

@@ -16,7 +16,8 @@
     "ignore": [
         "\\.vscode",
         "\\.git",
-        "\\.DS_Store"
+        "\\.DS_Store",
+        "\\.history"
     ],
     "generatedFiles": {
         "extensionsToInclude": [

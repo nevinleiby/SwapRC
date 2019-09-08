@@ -1,0 +1,50 @@
+create table EntryGeneric (
+    id CHAR(10),
+	type1 CHAR(20),
+	type2 CHAR(20),
+	manufacturer VARCHAR(10),
+	model VARCHAR(20),
+	release_year CHAR(4),
+	cost_msrp SMALLINT,
+	weight TINYINT,
+	dimension VARCHAR(10),
+	shipping_restriction VARCHAR (20),
+	id_code char(10),
+	country_of_origin CHAR(4),
+	url_manual        	VARCHAR(50),
+	url_manufacturer  	VARCHAR(50),
+	url_picture_new   	VARCHAR(50),
+	url_pictures_installed 	VARCHAR(50),
+	url_distributor1 	VARCHAR(50),
+	url_distributor2 	VARCHAR(50),
+	url_distributor3 	VARCHAR(50),
+	url_distributor4 	VARCHAR(50),
+	url_distributor5 	VARCHAR(50)
+) ENGINE InnoDB;
+
+
+
+create table EntryGoggle (
+    id CHAR(10),
+	resolution CHAR(20),
+	fov CHAR(10),
+	image_aspect_ratio VARCHAR(10),
+	hdmi_in VARCHAR(10)
+) ENGINE InnoDB;
+
+
+create table EntryTransmitter (
+    id CHAR(10),
+	access VARCHAR(10),
+	spectrum_analyzer VARCHAR(10),
+	screen VARCHAR(20),
+	video_signal VARCHAR(15),
+    jr VARCHAR(10),
+    operating_system VARCHAR(10),
+    training_function VARCHAR(10),
+    number_of_channels TINYINT,
+    model_memories TINYINT,
+    charging_interface VARCHAR(15),
+    opentx CHAR(6),
+    compatibility VARCHAR(20)
+) ENGINE InnoDB;

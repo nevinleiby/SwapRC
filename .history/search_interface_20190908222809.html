@@ -1,24 +1,26 @@
 <html>
     <title>
-        SwapRC:Add
+        SwapRC : Search
     </title>
     <body>
-            Add1
+            Search2
             <br>
-            <table border=4 width=100% height=95%>
-                <tr border=4 height=95%>
-                    <td width = 80% border=2 bgcolor="#ccffff" valign=top height=95%>
+            <table border=4 width=100% height=95%> 
+                <tr border=4 height=100% bgcolor=yellow>
+                    <td width = 80% border=2 bgcolor="#ccffff" valign=top>
                         [
-                        <b><a href="./add_interface.html">Add</a></b> |
-                        <a href="./search_interface.html">Search</a>
+                        <a href="./add_interface.html">Add</a> |
+                        <b><a href="./search_interface.html">Search</a></b>
                         ]
-                        
                         <form>
                         <br>
-                        <table width=100% height=95% bgcolor=blue>
-                            <tr height=95% style="height:95%">
-                                <td valign=top bgcolor="#ffaaff" style="height:95%">
+                        <table width=100% bgcolor=blue>
+                            <tr>
+                                <td valign=top bgcolor="#ffaaff">
                                     Search:
+                                    <input type=text name="search">
+                                    <input type=submit name="submit">
+                                    <br>
                                     <select name="category">
                                             <option value = "frame">Frame</option>    
                                             <option value = "fc">Flight Controller</option>
@@ -39,20 +41,32 @@
                                             <option value = "video_receivers">FPV Video Receivers</option>
                                             <option value = "swag">Swag</option>
                                     </select>
-                                    <input type=text name="Name" value = "URL or Search" >
-                                    <input type=submit name="submit">
-                                   
+                                    <br><br>
+                                    <select name="manufacturer">
+                                        <option value ="tbs">TBS</option>
+                                        <option value = "immersion">Immersion</option>                                        
+                                    </select>
+                
+                                    <br><br>
+                                    <select name="mah">
+                                        <option value = "2000">2000-3000</option>
+                                        <option value = "4000">3000-4000</option>
+                                    </select>
+                                    <br>
+                                    <br>
                                     
                                 </td>
-                                
+                                <td valign=top bgcolor="#cc33ff">
+                                    Search results
+                                </td>
                             </tr>
                         </table>
                         </form>
                         
                     </td>
-                    <td border=2 bgcolor="ffccccc" valign=top height=95%>
-                        <frameset>
-                            <iframe src="./frame_users.html">
+                    <td border=2 bgcolor="ffccccc" valign=top height=100%>
+                        <frameset height=100%>
+                                <iframe src="./frame_users.html">
                         </frameset>
                     </td>
                 </tr>

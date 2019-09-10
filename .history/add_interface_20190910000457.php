@@ -652,7 +652,7 @@
                         // check for trailing ','
                     $SQL_STRING .= ');';
                 break;
-            case 'video_receiver':                               
+            case 'video_monitor':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
                     $SQL_STRING .= " id, receiver_method, compatibility, rf_sensitivity, operating_voltage, voltage_min, voltage_max, antenna_connections, antenna_num";
                     $SQL_STRING .= ") VALUES (";
@@ -665,25 +665,6 @@
                         $SQL_STRING .= '"' . $column_array['voltage_max']. '", ';
                         $SQL_STRING .= '"' . $column_array['antenna_connections']. '", ';
                         $SQL_STRING .= $column_array['antenna_num']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'fc':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, band, frequency, eu, us, mounting_holes, transmit_power_min, transmit_power_max, voltage_min, voltage_max, antenna_connector, operating_voltage";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['band']. '", ';
-                        $SQL_STRING .= '"' . $column_array['frequency']. '", ';
-                        $SQL_STRING .= '"' . $column_array['eu']. '", ';
-                        $SQL_STRING .= '"' . $column_array['us']. '", ';
-                        $SQL_STRING .= '"' . $column_array['mounting_holes']. '", ';
-                        $SQL_STRING .= $column_array['transmit_power_min']. ', ';
-                        $SQL_STRING .= $column_array['transmit_power_max']. ', ';
-                        $SQL_STRING .= '"' .$column_array['voltage_min']. '", ';
-                        $SQL_STRING .= '"' .$column_array['voltage_max']. '", ';
-                        $SQL_STRING .= '"' .$column_array['antenna_connector']. '", ';
-                        $SQL_STRING .= $column_array['operating_voltage']. '  ';              
                         // check for trailing ','
                     $SQL_STRING .= ');';
                 break;

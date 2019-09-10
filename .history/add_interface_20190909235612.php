@@ -522,7 +522,7 @@
                 break;
             case 'hardware':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, hardware_type, size, color, operating_voltage, voltage_min, voltage_max, amps_max";
+                    $SQL_STRING .= " id, hardware_type, size, color, operating_voltage, voltage_min, voltage_max, amps_max ";
                     $SQL_STRING .= ") VALUES (";
                         $SQL_STRING .= $column_array['id'] . ', ';
                         $SQL_STRING .= '"' . $column_array['hardware_type']. '", ';
@@ -537,7 +537,7 @@
                 break;
             case 'motor':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, kv, stator_diameter, stator_height, shaft_size, mounting_screw, operating_voltage, voltage_min, voltage_max";
+                    $SQL_STRING .= " id, kv, stator_diameter, stator_height, shaft_size, mounting_screw, operating_voltage, voltage_min, voltage_max ";
                     $SQL_STRING .= ") VALUES (";
                         $SQL_STRING .= $column_array['id'] . ', ';
                         $SQL_STRING .= '"' . $column_array['kv']. '", ';
@@ -553,7 +553,7 @@
                 break;
             case 'pdb':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, stack_size, output_5v, output_10v, led, operating_voltage, voltage_min, voltage_max, amps_max";
+                    $SQL_STRING .= " id, stack_size, output_5v, output_10v, led, operating_voltage, voltage_min, voltage_max, amps_max ";
                     $SQL_STRING .= ") VALUES (";
                         $SQL_STRING .= $column_array['id'] . ', ';
                         $SQL_STRING .= '"' . $column_array['stack_size']. '", ';
@@ -569,7 +569,7 @@
                 break;
             case 'print':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, filament_type";
+                    $SQL_STRING .= " id, filament_type ";
                     $SQL_STRING .= ") VALUES (";
                         $SQL_STRING .= $column_array['id'] . ', ';
                         $SQL_STRING .= $column_array['filament_type']. '  ';              
@@ -578,7 +578,7 @@
                 break;
             case 'prop':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, prop_length, blades, cw, ccw, material";
+                    $SQL_STRING .= " id, prop_length, blades, cw, ccw, material ";
                     $SQL_STRING .= ") VALUES (";
                         $SQL_STRING .= $column_array['id'] . ', ';
                         $SQL_STRING .= '"' . $column_array['prop_length']. '", ';
@@ -591,7 +591,7 @@
                 break;
             case 'pdb':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, number_of_channels, operating_voltage, antenna_connector, eu, us, frequency, transmit_power_min, transmit_power_max";
+                    $SQL_STRING .= " id, number_of_channels, operating_voltage, antenna_connector, eu, us, frequency, transmit_power_min, transmit_power_max ";
                     $SQL_STRING .= ") VALUES (";
                         $SQL_STRING .= $column_array['id'] . ', ';
                         $SQL_STRING .= '"' . $column_array['number_of_channels']. '", ';
@@ -602,88 +602,6 @@
                         $SQL_STRING .= '"' . $column_array['frequency']. '", ';
                         $SQL_STRING .= '"' . $column_array['transmit_power_min']. '", ';
                         $SQL_STRING .= $column_array['transmit_power_max']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'swag':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, type, swag_size, color";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['type']. '", ';
-                        $SQL_STRING .= '"' . $column_array['swag_size']. '", ';
-                        $SQL_STRING .= $column_array['color']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'transmitter':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, access, spectrum_analyzer, screen, video_signal, jr, operating_system, training_function, number_of_channels, model_memories, charging_interface, opentx, compatibility";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['access']. '", ';
-                        $SQL_STRING .= '"' . $column_array['spectrum_analyzer']. '", ';
-                        $SQL_STRING .= '"' . $column_array['screen']. '", ';
-                        $SQL_STRING .= '"' . $column_array['video_signal']. '", ';
-                        $SQL_STRING .= '"' . $column_array['jr']. '", ';
-                        $SQL_STRING .= '"' . $column_array['operating_system']. '", ';
-                        $SQL_STRING .= '"' . $column_array['training_function']. '", ';
-                        $SQL_STRING .= '"' . $column_array['number_of_channels']. '", ';
-                        $SQL_STRING .= '"' . $column_array['model_memories']. '", ';
-                        $SQL_STRING .= '"' . $column_array['charging_interface']. '", ';
-                        $SQL_STRING .= '"' . $column_array['opentx']. '", ';
-                        $SQL_STRING .= $column_array['compatibility']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'video_monitor':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, resolution, screen_size, antenna, charging_interface, number_of_channels, video_format, output_10v, battery_type";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['resolution']. '", ';
-                        $SQL_STRING .= '"' . $column_array['screen_size']. '", ';
-                        $SQL_STRING .= '"' . $column_array['antenna']. '", ';
-                        $SQL_STRING .= '"' . $column_array['charging_interface']. '", ';
-                        $SQL_STRING .= '"' . $column_array['number_of_channels']. '", ';
-                        $SQL_STRING .= '"' . $column_array['video_format']. '", ';
-                        $SQL_STRING .= '"' . $column_array['output_10v']. '", ';
-                        $SQL_STRING .= $column_array['battery_type']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'video_receiver':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, receiver_method, compatibility, rf_sensitivity, operating_voltage, voltage_min, voltage_max, antenna_connections, antenna_num";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['receiver_method']. '", ';
-                        $SQL_STRING .= '"' . $column_array['compatibility']. '", ';
-                        $SQL_STRING .= '"' . $column_array['rf_sensitivity']. '", ';
-                        $SQL_STRING .= '"' . $column_array['operating_voltage']. '", ';
-                        $SQL_STRING .= '"' . $column_array['voltage_min']. '", ';
-                        $SQL_STRING .= '"' . $column_array['voltage_max']. '", ';
-                        $SQL_STRING .= '"' . $column_array['antenna_connections']. '", ';
-                        $SQL_STRING .= $column_array['antenna_num']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'fc':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, band, frequency, eu, us, mounting_holes, transmit_power_min, transmit_power_max, voltage_min, voltage_max, antenna_connector, operating_voltage";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['band']. '", ';
-                        $SQL_STRING .= '"' . $column_array['frequency']. '", ';
-                        $SQL_STRING .= '"' . $column_array['eu']. '", ';
-                        $SQL_STRING .= '"' . $column_array['us']. '", ';
-                        $SQL_STRING .= '"' . $column_array['mounting_holes']. '", ';
-                        $SQL_STRING .= $column_array['transmit_power_min']. ', ';
-                        $SQL_STRING .= $column_array['transmit_power_max']. ', ';
-                        $SQL_STRING .= '"' .$column_array['voltage_min']. '", ';
-                        $SQL_STRING .= '"' .$column_array['voltage_max']. '", ';
-                        $SQL_STRING .= '"' .$column_array['antenna_connector']. '", ';
-                        $SQL_STRING .= $column_array['operating_voltage']. '  ';              
                         // check for trailing ','
                     $SQL_STRING .= ');';
                 break;

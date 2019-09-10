@@ -466,12 +466,12 @@
                 break;
             case 'frame':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, frame_size, arms, print, camera_sizes, stacks, stack_size";
+                    $SQL_STRING .= " id, frame_size, arms, prints, camera_sizes, stacks, stack_size";
                     $SQL_STRING .= ") VALUES (";
                         $SQL_STRING .= $column_array['id'] . ', ';
                         $SQL_STRING .= '"' . $column_array['frame_size']. '", ';
                         $SQL_STRING .= '"' . $column_array['arms']. '", ';
-                        $SQL_STRING .= '"' . $column_array['print']. '", ';
+                        $SQL_STRING .= '"' . $column_array['prints']. '", ';
                         $SQL_STRING .= '"' . $column_array['camera_sizes']. '", ';
                         $SQL_STRING .= $column_array['stacks']. ', ';
                         $SQL_STRING .= $column_array['stack_size']. '  ';              

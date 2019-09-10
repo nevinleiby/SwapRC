@@ -103,7 +103,7 @@ create table frame (
     id CHAR(20),
     frame_size TINYINT,
     arms TINYINT,
-    prints VARCHAR(20),
+    print VARCHAR(20),
     camera_sizes VARCHAR(10),
     stacks TINYINT,
     stack_size VARCHAR(20)

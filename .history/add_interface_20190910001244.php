@@ -277,7 +277,7 @@
     {
         //echo 'ADD_ITEM_TO_TABLE  ID=[' . $row_add_array['id'] . ']<br>';
         $add_result = $connection->query($row_add_string);
-        echo "SQL ADD RESULT($add_result)<br>";
+        //echo "SQL ADD RESULT($add_result)<br>";
     }
     
 
@@ -360,7 +360,7 @@
             $value_original = $value;
             $value_checked = check_parameter($key, $value);
                                    
-            //echo "[$key] => [$value_original]|$value_checked|" . '<br>';                        
+            echo "[$key] => [$value_original]|$value_checked|" . '<br>';                        
 
             // Assign the data to it's own array now that the data is pure:
             $column_array[$key] = $value_checked;

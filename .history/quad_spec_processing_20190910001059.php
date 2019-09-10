@@ -128,7 +128,7 @@
                 }
                 else
                 {
-                    //echo "<br>|$parameter_type| => |$value|<br>";
+                    echo "<br>|$parameter_type| => |$value|<br>";
                     $return_value = 0;
                 }
                 break;
@@ -151,5 +151,28 @@
         }
         return $url;
     }
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

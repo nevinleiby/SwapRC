@@ -14,14 +14,10 @@
         switch ($parameter_type)
         {
             case 'id':
-                if (is_numeric($value))
+                if (! is_numeric($value))
                 {
-                     $return_value = $value;
+                     $return_value = 1;
                 }                
-                else
-                {
-                    $return_value = 1;
-                }
                 break;
 
             // Character checking:
@@ -128,7 +124,7 @@
                 }
                 else
                 {
-                    //echo "<br>|$parameter_type| => |$value|<br>";
+                    echo "<br>|$parameter_type| => |$value|<br>";
                     $return_value = 0;
                 }
                 break;
@@ -151,5 +147,28 @@
         }
         return $url;
     }
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

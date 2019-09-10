@@ -271,11 +271,11 @@
     // See the array of data:
     //print_r($row_add_array);
     $row_add_string = q_add_item_to_table($table_name, $categories, $row_add_array);
-    //echo "\n<br><br>ADD=[[" . $row_add_string . "]]<br>\n";
+    echo "\n<br><br>ADD=[[" . $row_add_string . "]]<br>\n";
 
     if ($row_add_string)
     {
-        //echo 'ADD_ITEM_TO_TABLE  ID=[' . $row_add_array['id'] . ']<br>';
+        echo 'ADD_ITEM_TO_TABLE  ID=[' . $row_add_array['id'] . ']<br>';
         $add_result = $connection->query($row_add_string);
         echo "SQL ADD RESULT($add_result)<br>";
     }
@@ -360,7 +360,7 @@
             $value_original = $value;
             $value_checked = check_parameter($key, $value);
                                    
-            //echo "[$key] => [$value_original]|$value_checked|" . '<br>';                        
+            echo "[$key] => [$value_original]|$value_checked|" . '<br>';                        
 
             // Assign the data to it's own array now that the data is pure:
             $column_array[$key] = $value_checked;

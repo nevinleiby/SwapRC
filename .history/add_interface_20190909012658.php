@@ -5,6 +5,51 @@
     <body>
             Add
             <br>
+            PHP STARTS
+            <?php
+                require_once 'login_cobalt.php';
+                $connection = new mysqli($hn, $un, $pw, $db);
+                if ($connection->connect_error) die ("Fatal Error");
+
+                // Select the table
+                $table_name = 'Receiver';
+
+                $query = "SELECT * FROM $table_name";
+                $result = $connection->query($query);
+                
+                if (! $result) die ("Fatal Error");
+                $rows = $result->num_rows;
+                //echo "((($row)))<br>";
+
+
+                echo "<br><br>STARTING DATA EXTRACTION [<br>";
+                // Step through each result:                  
+                //for ($j = 0; $j < $rows ; ++$j)
+                //{
+                //   $result->data_seek($j);
+                //    //echo .htmlspecialchars ($result->fetch_assoc()['test']) . '<br>';
+                //    echo "((" . htmlspecialchars($result->fetch_assoc()['frequency']) . '))<br>';
+                //    $result->data_seek($j);
+                //    echo "((" . htmlspecialchars($result->fetch_assoc()['number_of_channels']) . '))<br>';
+                //}
+
+
+                // Step through each result:                  
+                for ($j = 0; $j < $rows ; ++$j)
+                {
+                    $row = $result->fetch_array(MYSQLI_ASSOC);
+                    echo "((" . htmlspecialchars($row['frequency']) . '))<br>';
+                }
+                
+                echo "]ENDED EXTRACTION<br>";                
+                
+                
+                $result->close();
+                $connection->close();
+            ?>
+            PHP ENDS HERE
+
+            <br>
             <table border=4 width=100% height=95%>
                 <tr border=4 height=95%>
                     <td width = 80% border=2 bgcolor="#ccffff" valign=top height=95%>

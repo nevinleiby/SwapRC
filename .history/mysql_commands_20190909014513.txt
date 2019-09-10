@@ -1,0 +1,97 @@
+create database swaprc;
+use database swaprc;
+GRANT ALL ON swaprc.* TO 'nevin'@'localhost' IDENTIFIED BY 'kdie4all';
+
+create table Generic (
+    id CHAR(10),
+	type1 CHAR(20),
+	type2 CHAR(20),
+	manufacturer VARCHAR(10),
+	model VARCHAR(20),
+	release_year CHAR(4),
+	cost_msrp SMALLINT,
+	weight SMALLINT,
+	dimension VARCHAR(10),
+	shipping_restriction VARCHAR (20),
+	id_code char(10),
+	country_of_origin CHAR(4),
+	url_manual        	VARCHAR(50),
+	url_manufacturer  	VARCHAR(50),
+	url_picture_new   	VARCHAR(50),
+	url_pictures_installed 	VARCHAR(50),
+	url_distributor1 	VARCHAR(50),
+	url_distributor2 	VARCHAR(50),
+	url_distributor3 	VARCHAR(50),
+	url_distributor4 	VARCHAR(50),
+	url_distributor5 	VARCHAR(50)
+) ENGINE InnoDB;
+
+
+
+create table Goggle (
+    id CHAR(10),
+	resolution CHAR(20),
+	fov CHAR(10),
+	image_aspect_ratio VARCHAR(10),
+	hdmi_in VARCHAR(10)
+) ENGINE InnoDB;
+
+
+create table Transmitter (
+    id CHAR(10),
+	access VARCHAR(10),
+	spectrum_analyzer VARCHAR(10),
+	screen VARCHAR(20),
+	video_signal VARCHAR(15),
+    jr VARCHAR(10),
+    operating_system VARCHAR(10),
+    training_function VARCHAR(10),
+    number_of_channels TINYINT,
+    model_memories TINYINT,
+    charging_interface VARCHAR(15),
+    opentx CHAR(6),
+    compatibility VARCHAR(20)
+) ENGINE InnoDB;
+
+
+create table Receiver (
+    id CHAR(10),
+    number_of_channels TINYINT,
+    operating_voltage VARCHAR(10),
+    antenna_connector VARCHAR (10),
+    eu CHAR(1),
+    us CHAR(1),
+    frequency VARCHAR (20),
+    transmit_power_min SMALLINT,
+    transmit_power_max SMALLINT    
+) ENGINE InnoDB;
+
+create table FC (
+    id CHAR(10),
+    processor VARCHAR(15),
+    gyro VARCHAR(10),
+    mounting_holes VARCHAR(6),
+    osd CHAR(3),
+    voltage_min TINYINT,
+    voltage_max TINYINT,
+    firmware CHAR(5),
+    voltage_control TINYINT,
+    antenna_connector VARCHAR(6),
+    operating_voltage VARCHAR(10)
+) ENGINE InnoDB;
+
+
+create table VTX (
+    id CHAR(10),
+    band CHAR(10),
+    frequency VARCHAR(15),
+    eu CHAR(1),
+    us CHAR(1),
+    mounting_holes VARCHAR(6),
+    transmit_power_min SMALLINT,
+    transmit_power_max SMALLINT,
+    voltage_min TINYINT,
+    voltage_max TINYINT,
+    antenna_connector VARCHAR(6),
+    operating_voltage VARCHAR(10)
+) ENGINE InnoDB;

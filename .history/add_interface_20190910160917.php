@@ -4,7 +4,7 @@
     require_once 'quad_spec_processing.php';
 
     $connection = new mysqli($hn, $un, $pw, $db);
-    echo '<br>|'. $hn .'|'. $un .'|'. '|'. $db.']<br>';
+    echo '<br>|'. $hn .'|'. $un .'|'. $pw .'|'. $db.']<br>';
     echo '['.$connection->connect_error . ']';
 
     //if ($connection->connect_error) die ("Fatal Error");
@@ -214,7 +214,7 @@
         //echo '<input onClick="this.select();" type=text name="' . $row['Field'] . '" placeholder="' . $row['Field'] . '"><br>';
 
         // Pretty form of INPUT box
-        $search_input_text .= "\n" . '<input onClick="this.select();" type=text name="' . $row['Field'] . '" placeholder="' . $row['Field'] . '">&nbsp;&nbsp;' .  $row['Field'] . '<br>';
+        $search_input_text .= "\n" . '<input onClick="this.select();" type=text name="' . $row['Field'] . '" placeholder="' . $row['Field'] . '"><br>';
 
         // INPUT box but with default values:
         //$search_input_text .= "\n" . '<input onClick="this.select();" type=text name="' . $row['Field'] . '" value="' . $row['Field'] . '1">' . $row['Field'] . '<br>';
@@ -709,7 +709,6 @@ echo <<<_END
     <body>
             <!---- //@ -->
             <h1>Add : $category </h1>
-            <h2>409p</h2>
             <form action="./add_interface.php" method="post">
             
             <br>

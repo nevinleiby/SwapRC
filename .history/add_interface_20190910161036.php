@@ -4,7 +4,7 @@
     require_once 'quad_spec_processing.php';
 
     $connection = new mysqli($hn, $un, $pw, $db);
-    echo '<br>|'. $hn .'|'. $un .'|'. '|'. $db.']<br>';
+    echo '<br>|'. $hn .'|'. $un .'|'. $pw .'|'. $db.']<br>';
     echo '['.$connection->connect_error . ']';
 
     //if ($connection->connect_error) die ("Fatal Error");

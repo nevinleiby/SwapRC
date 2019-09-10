@@ -121,7 +121,7 @@
             case 'transmit_power_min':
             case 'transmit_power_max':
             case 'model_memories':
-            case 'antenna_num':
+            case 'antenna_num': 
                 if (is_numeric($value))
                 {
                     $return_value = $value;
@@ -132,7 +132,6 @@
                     $return_value = 0;
                 }
                 break;
-                
             // URL checking:
             case 'url':
                 $return_value = check_url($url);

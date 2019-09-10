@@ -7,7 +7,8 @@
             <br>
             PHP STARTS
             <?php
-                require_once 'login_cobalt.php';
+                //require_once 'login_cobalt.php';
+                require_once 'login_bluehost.php';
                 $connection = new mysqli($hn, $un, $pw, $db);
                 if ($connection->connect_error) die ("Fatal Error");
 

@@ -520,7 +520,7 @@
                         // check for trailing ','
                     $SQL_STRING .= ');';
                 break;
-            case 'hardware':                               
+            case 'generic':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
                     $SQL_STRING .= " id, hardware_type, size, color, operating_voltage, voltage_min, voltage_max, amps_max ";
                     $SQL_STRING .= ") VALUES (";

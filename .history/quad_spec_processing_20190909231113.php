@@ -99,16 +99,16 @@
             case 'length':
             case 'width':
             case 'height':
-            case 'frame_size':
+            case ' frame_size':
             case 'size':
             case 'amps_max':
             case 'fov':
-            case 'arms':
+            case ' arms':
             case 'stacks':
             case 'kv':
             case 'stator_diameter':
             case 'stator_height':
-            case 'shaft_size':
+            case ' shaft_size':
             case 'prop_length':
             case 'blades':
             case 'cw':
@@ -124,13 +124,12 @@
                 }
                 else
                 {
-                    echo "<br>|$parameter_type| => |$value|<br>";
                     $return_value = 0;
                 }
                 break;
             // URL checking:
             case 'url':
-                $return_value = check_url($url);
+                $return_value = check_url($url)
                 break;
             // Default:
             default:

@@ -403,34 +403,6 @@
                         // check for trailing ','
                     $SQL_STRING .= ');';
                 break;    
-            case 'bnf':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, frame_size, receiver, transmitter, goggles";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['frame_size']. '", ';
-                        $SQL_STRING .= '"' . $column_array['receiver']. '", ';
-                        $SQL_STRING .= '"' . $column_array['transmitter']. '", ';
-                        $SQL_STRING .= $column_array['goggles']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'esc':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, esc_type, size, stack_size, protocols_supported, operating_voltage, voltage_min, voltage_max, amps_max";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['esc_type']. '", ';
-                        $SQL_STRING .= '"' . $column_array['size']. '", ';
-                        $SQL_STRING .= '"' . $column_array['stack_size']. '", ';
-                        $SQL_STRING .= '"' . $column_array['protocols_supported']. '", ';
-                        $SQL_STRING .= '"' . $column_array['operating_voltage']. '", ';
-                        $SQL_STRING .= '"' . $column_array['voltage_min']. '", ';
-                        $SQL_STRING .= '"' . $column_array['voltage_max']. '", ';
-                        $SQL_STRING .= $column_array['amps_max']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
             case 'fc':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
                     $SQL_STRING .= " id, processor, gyro, mounting_holes, osd, voltage_min, voltage_max, firmware, voltage_control, antenna_connector, operating_voltage";
@@ -449,92 +421,25 @@
                         // check for trailing ','
                     $SQL_STRING .= ');';
                 break;
-            case 'fpv_camera':                               
+            case 'bnf':                               
                 $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, fov, image_aspect_ratio, size, lens, operating_voltage, voltage_min, voltage_max";
+                    $SQL_STRING .= " id, frame_size, receiver, mounting_holes, osd, voltage_min, voltage_max, firmware, voltage_control, antenna_connector, operating_voltage";
                     $SQL_STRING .= ") VALUES (";
                         $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['fov']. '", ';
-                        $SQL_STRING .= '"' . $column_array['image_aspect_ratio']. '", ';
-                        $SQL_STRING .= '"' . $column_array['size']. '", ';
-                        $SQL_STRING .= '"' . $column_array['lens']. '", ';
-                        $SQL_STRING .= $column_array['operating_voltage']. ', ';
+                        $SQL_STRING .= '"' . $column_array['processor']. '", ';
+                        $SQL_STRING .= '"' . $column_array['gyro']. '", ';
+                        $SQL_STRING .= '"' . $column_array['mounting_holes']. '", ';
+                        $SQL_STRING .= '"' . $column_array['osd']. '", ';
                         $SQL_STRING .= $column_array['voltage_min']. ', ';
-                        $SQL_STRING .= $column_array['voltage_max']. '  ';              
+                        $SQL_STRING .= $column_array['voltage_max']. ', ';
+                        $SQL_STRING .= '"' .$column_array['firmware']. '", ';
+                        $SQL_STRING .= '"' .$column_array['voltage_control']. '", ';
+                        $SQL_STRING .= '"' .$column_array['antenna_connector']. '", ';
+                        $SQL_STRING .= $column_array['operating_voltage']. '  ';              
                         // check for trailing ','
                     $SQL_STRING .= ');';
                 break;
-            case 'frame':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, frame_size, arms, prints, camera_sizes, stacks, stack_size";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['frame_size']. '", ';
-                        $SQL_STRING .= '"' . $column_array['arms']. '", ';
-                        $SQL_STRING .= '"' . $column_array['prints']. '", ';
-                        $SQL_STRING .= '"' . $column_array['camera_sizes']. '", ';
-                        $SQL_STRING .= $column_array['stacks']. ', ';
-                        $SQL_STRING .= $column_array['stack_size']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'generic':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, type1, type2, manufacturer, model, release_year, cost_msrp, cost_personal, item_age, weight, dimension, shipping_restriction, id_code, country_of_origin, url_manual, url_manufacturer, url_picture_new, url_pictures_installed, url_distributor1, url_distributor2, url_distributor3, url_distributor4, url_distributor5";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['type1']. '", ';
-                        $SQL_STRING .= '"' . $column_array['type2']. '", ';
-                        $SQL_STRING .= '"' . $column_array['manufacturer']. '", ';
-                        $SQL_STRING .= '"' . $column_array['model']. '", ';
-                        $SQL_STRING .= '"' . $column_array['release_year']. '", ';
-                        $SQL_STRING .= '"' . $column_array['cost_msrp']. '", ';
-                        $SQL_STRING .= '"' . $column_array['cost_personal']. '", ';
-                        $SQL_STRING .= '"' . $column_array['item_age']. '", ';
-                        $SQL_STRING .= '"' . $column_array['weight']. '", ';
-                        $SQL_STRING .= '"' . $column_array['dimension']. '", ';
-                        $SQL_STRING .= '"' . $column_array['shipping_restriction']. '", ';
-                        $SQL_STRING .= '"' . $column_array['id_code']. '", ';
-                        $SQL_STRING .= '"' . $column_array['country_of_origin']. '", ';
-                        $SQL_STRING .= '"' . $column_array['url_manual']. '", ';
-                        $SQL_STRING .= '"' . $column_array['url_manufacturer']. '", ';
-                        $SQL_STRING .= '"' . $column_array['url_picture_new']. '", ';
-                        $SQL_STRING .= '"' . $column_array['url_pictures_installed']. '", ';
-                        $SQL_STRING .= '"' . $column_array['url_distributor1']. '", ';
-                        $SQL_STRING .= '"' . $column_array['url_distributor2']. '", ';
-                        $SQL_STRING .= '"' . $column_array['url_distributor3']. '", ';
-                        $SQL_STRING .= '"' . $column_array['url_distributor4']. '", ';
-                        $SQL_STRING .= $column_array['url_distributor5']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'generic':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, resolution, fov, image_aspect_ratio, hdmi_in";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['resolution']. '", ';
-                        $SQL_STRING .= '"' . $column_array['fov']. '", ';
-                        $SQL_STRING .= '"' . $column_array['image_aspect_ratio']. '", ';
-                        $SQL_STRING .= $column_array['hdmi_in']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
-            case 'hardware':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, hardware_type, size, color, operating_voltage, voltage_min, voltage_max, amps_max ";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['hardware_type']. '", ';
-                        $SQL_STRING .= '"' . $column_array['size']. '", ';
-                        $SQL_STRING .= '"' . $column_array['color']. '", ';
-                        $SQL_STRING .= '"' . $column_array['operating_voltage']. '", ';
-                        $SQL_STRING .= '"' . $column_array['voltage_min']. '", ';
-                        $SQL_STRING .= '"' . $column_array['voltage_max']. '", ';
-                        $SQL_STRING .= $column_array['amps_max']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
+           
             default:
                 break;    
         }

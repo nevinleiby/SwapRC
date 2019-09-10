@@ -174,7 +174,7 @@ create table antenna (
     bandwidth VARCHAR(5),
     swr CHAR(4),
     gain CHAR(4),
-    connector CHAR(5)
+    antenna_connector CHAR(5)
 ) ENGINE InnoDB;
 
 
@@ -243,7 +243,7 @@ create table bnf (
 
 
 
-create table 3d_print (
+create table print (
     id CHAR(20),
     filament_type CHAR(20)
 ) ENGINE InnoDB;

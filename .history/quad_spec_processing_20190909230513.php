@@ -3,15 +3,15 @@
     // Data processing functions:
 
     ///////////////////////////////////////////////
-    // check_parameter
+    // check_add_parameter
     //    Simplified method for data checking based upon parameter name
-    //    $value = check_parameter($parameter_type, $value);
+    //    $value = check_add_parameter($parameter_type, $value);
     ///////////////////////////////////////////////
-    function check_parameter ($parameter_type, $value)
+    function check_add_parameter ($parameter_type, $value)
     {
         $return_value = 0;
 
-        switch ($parameter_type)
+        switch ($parameter_type):
         {
             case 'id':
                 if (! is_numeric($value))
@@ -19,8 +19,6 @@
                      $return_value = 1;
                 }                
                 break;
-
-            // Character checking:
             case 'processor':
             case 'gyro':
             case 'mounting_holes':
@@ -87,9 +85,7 @@
                 {
                     $return_value = '';
                 }
-                break;      
-            
-            // Numerical checking
+                break;            
             case 'voltage_min':
             case 'voltage_max':
             case 'operating_voltage':
@@ -99,16 +95,16 @@
             case 'length':
             case 'width':
             case 'height':
-            case 'frame_size':
+            case ' frame_size':
             case 'size':
             case 'amps_max':
             case 'fov':
-            case 'arms':
+            case ' arms':
             case 'stacks':
             case 'kv':
             case 'stator_diameter':
             case 'stator_height':
-            case 'shaft_size':
+            case ' shaft_size':
             case 'prop_length':
             case 'blades':
             case 'cw':
@@ -122,17 +118,13 @@
                 {
                     $return_value = $value;
                 }
-                else
-                {
-                    echo "<br>|$parameter_type| => |$value|<br>";
+                else {
                     $return_value = 0;
                 }
                 break;
-            // URL checking:
             case 'url':
-                $return_value = check_url($url);
+                $return_value = check_url($url)
                 break;
-            // Default:
             default:
                 break;               
         }

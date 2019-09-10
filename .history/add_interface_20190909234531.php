@@ -520,21 +520,6 @@
                         // check for trailing ','
                     $SQL_STRING .= ');';
                 break;
-            case 'hardware':                               
-                $SQL_STRING = "INSERT INTO $table_name (";
-                    $SQL_STRING .= " id, hardware_type, size, color, operating_voltage, voltage_min, voltage_max, amps_max ";
-                    $SQL_STRING .= ") VALUES (";
-                        $SQL_STRING .= $column_array['id'] . ', ';
-                        $SQL_STRING .= '"' . $column_array['hardware_type']. '", ';
-                        $SQL_STRING .= '"' . $column_array['size']. '", ';
-                        $SQL_STRING .= '"' . $column_array['color']. '", ';
-                        $SQL_STRING .= '"' . $column_array['operating_voltage']. '", ';
-                        $SQL_STRING .= '"' . $column_array['voltage_min']. '", ';
-                        $SQL_STRING .= '"' . $column_array['voltage_max']. '", ';
-                        $SQL_STRING .= $column_array['amps_max']. '  ';              
-                        // check for trailing ','
-                    $SQL_STRING .= ');';
-                break;
             default:
                 break;    
         }

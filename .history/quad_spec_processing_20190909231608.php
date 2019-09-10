@@ -124,7 +124,7 @@
                 }
                 else
                 {
-                    echo "<br>|$parameter_type| => |$value|<br>";
+                    //echo "|$parameter_type| => |$value|";
                     $return_value = 0;
                 }
                 break;

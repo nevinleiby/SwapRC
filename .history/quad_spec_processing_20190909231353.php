@@ -108,7 +108,7 @@
             case 'kv':
             case 'stator_diameter':
             case 'stator_height':
-            case 'shaft_size':
+            case ' shaft_size':
             case 'prop_length':
             case 'blades':
             case 'cw':
@@ -124,7 +124,6 @@
                 }
                 else
                 {
-                    echo "<br>|$parameter_type| => |$value|<br>";
                     $return_value = 0;
                 }
                 break;

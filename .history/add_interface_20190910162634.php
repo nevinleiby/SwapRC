@@ -6,6 +6,7 @@
     $connection = new mysqli($hn, $un, $pw, $db);
     echo '<br>|'. $hn .'|'. $un .'|'. '|'. $db.']<br>';
     echo '['.$connection->connect_error . ']';
+
     //if ($connection->connect_error) die ("Fatal Error");
 
     // Define categories as an array
@@ -708,7 +709,7 @@ echo <<<_END
     <body>
             <!---- //@ -->
             <h1>Add : $category </h1>
-            <h2>443p</h2>
+            <h2>426p</h2>
             <form action="./add_interface.php" method="post">
             
             <br>

@@ -1,6 +1,6 @@
-create database swaprc;
-use database swaprc;
-GRANT ALL ON swaprc.* TO 'nevin'@'localhost' IDENTIFIED BY 'kdie4all';
+create database rcbargin_swaprc;
+use database rcbargin_swaprc;
+GRANT ALL ON rcbargin_swaprc.* TO 'rcbargin_nevin'@'localhost' IDENTIFIED BY 'kdie4all';
 
 create table generic (
     id CHAR(20),

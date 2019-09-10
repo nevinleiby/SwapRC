@@ -6,6 +6,7 @@
     $connection = new mysqli($hn, $un, $pw, $db);
     echo '<br>|'. $hn .'|'. $un .'|'. '|'. $db.']<br>';
     echo '['.$connection->connect_error . ']';
+
     //if ($connection->connect_error) die ("Fatal Error");
 
     // Define categories as an array

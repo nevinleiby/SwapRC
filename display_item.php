@@ -4,8 +4,11 @@
     require_once 'quad_spec_processing.php';
     require_once 'quad_sql_commands.php';
 
+    
     $connection = new mysqli($hn, $un, $pw, $db);
-    if ($connection->connect_error) die ("Fatal Error");
+    echo '<br>|'. $hn .'|'. $un .'|'. '|'. $db.']<br>';
+    echo '['.$connection->connect_error . ']';
+
 
     // Define categories as an array
     //$categories =    array (
@@ -118,7 +121,10 @@
     $query = "SELECT * FROM $table_name";
     $result = $connection->query($query);
     
-    if (! $result) die ("Fatal Error");
+    //if (! $result) die ("Fatal Error");
+
+    //echo "Result of SELECT: [$result]";
+
     $number_of_rows = $result->num_rows;
     //echo "((($row)))<br>";
 
@@ -294,10 +300,13 @@
     // Displaying contents of the Category's
     //$display_result = $connection->query("SELECT id from $category");
     $display_result = $connection->query("SELECT * from $category");
-    if ( ! $display_result) die ("Fatal Error");
+    
+    //if ( ! $display_result) die ("Fatal Error");
+    //echo "Result of display_result: $display_result;
 
     $rows = $display_result->num_rows;
 
+    echo '<hl>';
     for ($j = 0; $j < $rows; ++$j)
     {
         $row = $display_result->fetch_array(MYSQL_ASSOC);
@@ -308,7 +317,7 @@
         echo '<a href="./display_item.php?' . $category . '=' . $row['id'] . '&category=' . $category . '">' . $row['id'] . '('. $row['type1'] . ')</a>';
         echo '<a href="' . $row['url_distributor1'] . '">(url)</a><br>';
     }
-
+    echo '<hl>';
 
     $result->close();
     $connection->close();
@@ -377,6 +386,7 @@ echo <<<_END
     </title>
     <body>
             <h1>Display : $category</h1>
+            <h2>426p</h2>
             <form action="./add_interface.php" method="post">
             
             <br>

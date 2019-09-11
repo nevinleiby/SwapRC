@@ -99,9 +99,9 @@
     $query = "SELECT * FROM $table_name;";
     $result = $connection->query($query);
     
-    //echo "Right before select ($query)<br>";
-    if (! $result) die ("Fatal Error: add_interface_old.php");
-    //echo "made it!";
+    echo "Right before select ($query)<br>";
+    if (! $result) die ("Fatal Error");
+    echo "made it!";
 
     $number_of_rows = $result->num_rows;
     //echo "((($row)))<br>";
@@ -287,70 +287,27 @@
         $add_result = $connection->query($row_add_string);
         echo "SQL ADD RESULT($add_result)<br>";
     }
-        
+    
 
-    ////////////////////////////////////////////////////////////////////
-    // Try to display a listing of items if we can:
-    ////////////////////////////////////////////////////////////////////
-    $id_query = "SELECT id,type1,url_distributor1,url_picture_new from $table_name;";
-    echo '<br><font color=red>ID query=|' . $id_query . '</font>|<br>';
+
+    
+    $id_query = "SELECT id from $category";
+    echo "<br>ID query=|$id_query|<br>";
     $display_result = $connection->query($id_query);
-  
-    //if ($display_result) die ("Fatal Error");
-    if ($display_result)
-    {   
-        $rows = $display_result->num_rows;
-        echo "\n\n" . '<table><!-------- RESULTS ------->';
-        for ($j = 0; $j < $rows; ++$j)
-        {
-            if ($j % 3 == 0)
-            {
-                echo "\n" . '<tr>';
-            }
-            //$row = $display_result->fetch_array(MYSQL_ASSOC);
-            //$row = $display_result->fetch_array(MYSQL_ARRAY);
-            //$row = $display_result->fetch_array(MYSQLI_NUM);
-            $row = $display_result->fetch_array(MYSQLI_ASSOC);
+    if ( ! $display_result) die ("Fatal Error");
 
-            // Display a link for the particular item. 
-            //   Item should be a link within the Category DB, which will then be able to unit with Entry DB.
-            //   If the Entry DB is referenced without referencing the Category DB, then it could be harder to link
+    $rows = $display_result->num_rows;
 
-            // This may be causing an issue....try to be case-sensitive:
-            //echo '<a href="./display_item_old.php?' . $category . '=' . $row['id'] . '&category=' . $category .'">1-' . $row['id'] . '</a>[' . $category . ']<br>';
-
-            //echo "# $j -" . '<a href="./display_item_old.php?' . $table_name . '=' . $row['id'] . '&category=' . $table_name .'">ITEM=(' . $row['type1'] . ')</a>';
-            //echo '[<a href="' . $row['url_distributor1'] . '">link</a>]' . '<img align=middle width=100 height=100 src="' . $row['url_picture_new'] . '">';
-            //echo '<br>';
-
-            echo '<td bgcolor=#ffffaa align=center valign=top width=300>' . $j;
-
-            // Picture link:
-            echo '<a href="./display_item_old.php?' . $table_name . '=' . $row['id'] . '&category=' . $table_name .'">';
-            echo '<img align=middle width=100 height=100 src="' . $row['url_picture_new'] . '"></a><br>';
-
-            // Text link:
-            echo '<a href="./display_item_old.php?' . $table_name . '=' . $row['id'] . '&category=' . $table_name .'">Item=(' . $row['type1'] . ')</a>';
-            echo '<br>';
-            echo '[<a href="' . $row['url_distributor1'] . '">Distributor1</a>]';
-            
-            echo '</td>';
-
-            if ($j % 3 == 0)
-            {
-                echo "\n" . '</tr>';
-            }            
-        }
-        echo "\n" . '</tr></table>';
-    }
-    else
+    for ($j = 0; $j < $rows; ++$j)
     {
-        echo "No items in database for ($category)<br>";
+        $row = $display_result->fetch_array(MYSQL_ASSOC);
+
+        // Display a link for the particular item. 
+        //   Item should be a link within the Category DB, which will then be able to unit with Entry DB.
+        //   If the Entry DB is referenced without referencing the Category DB, then it could be harder to link
+        echo '<a href="./display_item_old.php?' . $category . '=' . $row['id'] . '&category=' . $category .'">' . $row['id'] . '</a><br>';
     }
-    ////////////////////////////////////////////////////////////////////
-    // END attempt at displaying a listing of items
-    ////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////
+
 
     $result->close();
     $connection->close();
@@ -419,7 +376,7 @@ echo <<<_END
     </title>
     <body>
             <h1>Add : $category</h1>
-            <h2>857</h2>
+            <h2>501</h2>
             <form action="./add_interface_old.php" method="post">
             
             <br>
@@ -427,7 +384,7 @@ echo <<<_END
                 <tr border=4 height=95%>
                     <td width = 80% border=2 bgcolor="#ccffff" valign=top height=95%>
                         [
-                        <b><a href="./add_interface_old.php">Add</a></b> |
+                        <b><a href="./add_interface_old">Add</a></b> |
                         <a href="./search_interface.php">Search</a>
                         ]
                         

@@ -100,7 +100,7 @@
     $result = $connection->query($query);
     
     //echo "Right before select ($query)<br>";
-    if (! $result) die ("Fatal Error: add_interface_old.php");
+    if (! $result) die ("Fatal Error");
     //echo "made it!";
 
     $number_of_rows = $result->num_rows;

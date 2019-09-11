@@ -11,8 +11,7 @@
     {
         $return_value = 0;
 
-        //echo '(' . $parameter_type . ')';
-        
+        echo '(' . $parameter_type . ')';
         switch ($parameter_type)
         {
             case 'id':

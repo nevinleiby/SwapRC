@@ -39,7 +39,7 @@
             $value_original = $value;
             $value_checked = check_parameter($key, $value);
                                    
-            //echo "[$key] => [$value_original]|$value_checked|" . '<br>';                        
+            echo "[$key] => [$value_original]|$value_checked|" . '<br>';                        
 
             // Assign the data to it's own array now that the data is pure:
             $column_array[$key] = $value_checked;

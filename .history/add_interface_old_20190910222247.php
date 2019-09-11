@@ -99,9 +99,9 @@
     $query = "SELECT * FROM $table_name;";
     $result = $connection->query($query);
     
-    //echo "Right before select ($query)<br>";
-    if (! $result) die ("Fatal Error: add_interface_old.php");
-    //echo "made it!";
+    echo "Right before select ($query)<br>";
+    if (! $result) die ("Fatal Error");
+    echo "made it!";
 
     $number_of_rows = $result->num_rows;
     //echo "((($row)))<br>";
@@ -293,7 +293,7 @@
     // Try to display a listing of items if we can:
     ////////////////////////////////////////////////////////////////////
     $id_query = "SELECT id,type1,url_distributor1,url_picture_new from $table_name;";
-    echo '<br><font color=red>ID query=|' . $id_query . '</font>|<br>';
+    echo '<br><font color=blue>ID query=|' . $id_query . '</font>|<br>';
     $display_result = $connection->query($id_query);
   
     //if ($display_result) die ("Fatal Error");
@@ -303,7 +303,7 @@
         echo "\n\n" . '<table><!-------- RESULTS ------->';
         for ($j = 0; $j < $rows; ++$j)
         {
-            if ($j % 3 == 0)
+            if ($j % 1 == 0)
             {
                 echo "\n" . '<tr>';
             }
@@ -323,7 +323,7 @@
             //echo '[<a href="' . $row['url_distributor1'] . '">link</a>]' . '<img align=middle width=100 height=100 src="' . $row['url_picture_new'] . '">';
             //echo '<br>';
 
-            echo '<td bgcolor=#ffffaa align=center valign=top width=300>' . $j;
+            echo '<td bgcolor=red>' . $j;
 
             // Picture link:
             echo '<a href="./display_item_old.php?' . $table_name . '=' . $row['id'] . '&category=' . $table_name .'">';
@@ -331,12 +331,11 @@
 
             // Text link:
             echo '<a href="./display_item_old.php?' . $table_name . '=' . $row['id'] . '&category=' . $table_name .'">Item=(' . $row['type1'] . ')</a>';
-            echo '<br>';
             echo '[<a href="' . $row['url_distributor1'] . '">Distributor1</a>]';
             
             echo '</td>';
 
-            if ($j % 3 == 0)
+            if ($j % 1 == 0)
             {
                 echo "\n" . '</tr>';
             }            

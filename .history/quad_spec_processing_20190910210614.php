@@ -11,8 +11,7 @@
     {
         $return_value = 0;
 
-        //echo '(' . $parameter_type . ')';
-        
+        echo '(' . $parameter_type . ')';
         switch ($parameter_type)
         {
             case 'id':
@@ -133,7 +132,8 @@
                     //echo "<br>|$parameter_type| => |$value|<br>";
                     $return_value = 0;
                 }
-                break;                
+                break;
+                
             // URL checking:
             case 'url':
             case 'url_manual':

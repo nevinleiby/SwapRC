@@ -183,7 +183,7 @@
                         $SQL_STRING .= '"' . $column_array['url_distributor2']. '", ';
                         $SQL_STRING .= '"' . $column_array['url_distributor3']. '", ';
                         $SQL_STRING .= '"' . $column_array['url_distributor4']. '", ';
-                        $SQL_STRING .= '"' . $column_array['url_distributor5']. '"  ';              
+                        $SQL_STRING .= $column_array['url_distributor5']. '  ';              
                         // check for trailing ','
                     $SQL_STRING .= ');';
                 break;

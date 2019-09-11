@@ -11,8 +11,7 @@
     {
         $return_value = 0;
 
-        //echo '(' . $parameter_type . ')';
-        
+        echo '(' . $parameter_type . ')';
         switch ($parameter_type)
         {
             case 'id':
@@ -133,7 +132,8 @@
                     //echo "<br>|$parameter_type| => |$value|<br>";
                     $return_value = 0;
                 }
-                break;                
+                break;
+                
             // URL checking:
             case 'url':
             case 'url_manual':
@@ -145,8 +145,8 @@
             case 'url_distributor3':
             case 'url_distributor4':
             case 'url_distributor5':
-                //echo 'url=[' . $value . ']<br>';
-                $return_value = check_url($value);
+                echo 'url=[' . $url . ']<br>';
+                $return_value = check_url($url);
                 break;
             // Default:
             default:
@@ -161,7 +161,7 @@
         //{
         //    $url .= '';
         //}
-        //echo '[' . $url . ']';
+        echo '{' . $url . '}';
         return $url;
     }
     

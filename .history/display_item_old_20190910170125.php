@@ -6,8 +6,6 @@
     $connection = new mysqli($hn, $un, $pw, $db);
     echo '<br>|'. $hn .'|'. $un .'|'. '|'. $db.']<br>';
     echo '['.$connection->connect_error . ']';
-    //if ($connection->connect_error) die ("Fatal Error");
-
 
     // Define categories as an array
     //$categories =    array (
@@ -58,13 +56,16 @@
     ];
     
 
+    $table_name = '';
+
     //echo '==================' . isset($_POST['category']) . '=================<br>';
     if (isset($_POST['category']))
     {
         $q_category = $_POST['category']; 
         $q_category = strip_tags($q_category);
+        echo "----$q_category---";
        
-        $table_name = '';
+        
         // Compare available categories and make sure that user selected an actual category:
         foreach ($categories as $item)
         {
@@ -79,29 +80,45 @@
         // Default if there is not a valid table used:
         if ($table_name == '')
         {
-            $table_name = 'frame';
+            $table_name = 'frame';               
         }
     }
-    else
+    elseif (isset($_GET['category']))
     {
-        $table_name = 'frame';
+        $q_category = $_GET['category']; 
+        $q_category = strip_tags($q_category);
+
+        //echo '----7' . $q_category . '7---';
+
+        // Compare available categories and make sure that user selected an actual category:
+        foreach ($categories as $item)
+        {
+            //echo "Requested ($q_category) vs actual ($item)<br>";
+            
+            if ($item == strtolower ($q_category))
+            {
+                $table_name = $item;    
+                //echo "MATCH ($q_category) vs actual ($item)<br>";                
+                //echo "Requested ($q_category) vs actual ($item)<br>";                
+                break;
+            }           
+        }
     }
+
+    // Default if there is not a valid table used:
+    if ($table_name == '')
+    {
+        $table_name = 'frame';               
+    }
+     
     $category = ucfirst ($table_name);
     
     //echo '--------------9' . $table_name . '9---------------<br>';
     
-    // Final check to make sure that table is defined:
-    if (! $table_name)
-    {   
-        $table_name = 'frame';
-    }
-
-    $query = "SELECT * FROM $table_name;";
+    $query = "SELECT * FROM $table_name";
     $result = $connection->query($query);
     
-    //echo "Right before select ($query)<br>";
-    if (! $result) die ("Fatal Error: add_interface_old.php");
-    //echo "made it!";
+    //if (! $result) die ("Fatal Error");
 
     $number_of_rows = $result->num_rows;
     //echo "((($row)))<br>";
@@ -249,8 +266,7 @@
 
 
     // Now generate the available options:
-    //$select_options_text = select_item(strtolower($category), $categories);
-    $select_options_text = select_item($table_name, $categories);
+    $select_options_text = select_item(strtolower($category), $categories);
 
     // Associative array to add to the table:
     $row_add_array;
@@ -274,83 +290,27 @@
         break;
     }
 
-    // Now lets add the data to the database:
+   
 
-    // See the array of data:
-    //print_r($row_add_array);
-    $row_add_string = q_add_item_to_table($table_name, $categories, $row_add_array);
-    echo "\n<br><br>ADD=[[" . $row_add_string . "]]<br>\n";
+    // Displaying contents of the Category's
+    //$display_result = $connection->query("SELECT id from $category");
+    $display_result = $connection->query("SELECT * from $category");
 
-    if ($row_add_string)
+    //if ( ! $display_result) die ("Fatal Error");
+
+    $rows = $display_result->num_rows;
+
+    for ($j = 0; $j < $rows; ++$j)
     {
-        //echo 'ADD_ITEM_TO_TABLE  ID=[' . $row_add_array['id'] . ']<br>';
-        $add_result = $connection->query($row_add_string);
-        echo "SQL ADD RESULT($add_result)<br>";
+        $row = $display_result->fetch_array(MYSQL_ASSOC);
+
+        // Display a link for the particular item. 
+        //   Item should be a link within the Category DB, which will then be able to unit with Entry DB.
+        //   If the Entry DB is referenced without referencing the Category DB, then it could be harder to link
+        echo '<a href="./display_item_old.php?' . $category . '=' . $row['id'] . '&category=' . $category . '">' . $row['id'] . '('. $row['type1'] . ')</a>';
+        echo '<a href="' . $row['url_distributor1'] . '">(url)</a><br>';
     }
-        
 
-    ////////////////////////////////////////////////////////////////////
-    // Try to display a listing of items if we can:
-    ////////////////////////////////////////////////////////////////////
-    $id_query = "SELECT id,type1,url_distributor1,url_picture_new from $table_name;";
-    echo '<br><font color=red>ID query=|' . $id_query . '</font>|<br>';
-    $display_result = $connection->query($id_query);
-  
-    //if ($display_result) die ("Fatal Error");
-    if ($display_result)
-    {   
-        $rows = $display_result->num_rows;
-        echo "\n\n" . '<table><!-------- RESULTS ------->';
-        for ($j = 0; $j < $rows; ++$j)
-        {
-            if ($j % 3 == 0)
-            {
-                echo "\n" . '<tr>';
-            }
-            //$row = $display_result->fetch_array(MYSQL_ASSOC);
-            //$row = $display_result->fetch_array(MYSQL_ARRAY);
-            //$row = $display_result->fetch_array(MYSQLI_NUM);
-            $row = $display_result->fetch_array(MYSQLI_ASSOC);
-
-            // Display a link for the particular item. 
-            //   Item should be a link within the Category DB, which will then be able to unit with Entry DB.
-            //   If the Entry DB is referenced without referencing the Category DB, then it could be harder to link
-
-            // This may be causing an issue....try to be case-sensitive:
-            //echo '<a href="./display_item_old.php?' . $category . '=' . $row['id'] . '&category=' . $category .'">1-' . $row['id'] . '</a>[' . $category . ']<br>';
-
-            //echo "# $j -" . '<a href="./display_item_old.php?' . $table_name . '=' . $row['id'] . '&category=' . $table_name .'">ITEM=(' . $row['type1'] . ')</a>';
-            //echo '[<a href="' . $row['url_distributor1'] . '">link</a>]' . '<img align=middle width=100 height=100 src="' . $row['url_picture_new'] . '">';
-            //echo '<br>';
-
-            echo '<td bgcolor=#ffffaa align=center valign=top width=300>' . $j;
-
-            // Picture link:
-            echo '<a href="./display_item_old.php?' . $table_name . '=' . $row['id'] . '&category=' . $table_name .'">';
-            echo '<img align=middle width=100 height=100 src="' . $row['url_picture_new'] . '"></a><br>';
-
-            // Text link:
-            echo '<a href="./display_item_old.php?' . $table_name . '=' . $row['id'] . '&category=' . $table_name .'">Item=(' . $row['type1'] . ')</a>';
-            echo '<br>';
-            echo '[<a href="' . $row['url_distributor1'] . '">Distributor1</a>]';
-            
-            echo '</td>';
-
-            if ($j % 3 == 0)
-            {
-                echo "\n" . '</tr>';
-            }            
-        }
-        echo "\n" . '</tr></table>';
-    }
-    else
-    {
-        echo "No items in database for ($category)<br>";
-    }
-    ////////////////////////////////////////////////////////////////////
-    // END attempt at displaying a listing of items
-    ////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////
 
     $result->close();
     $connection->close();
@@ -415,11 +375,11 @@
 echo <<<_END
 <html>
     <title>
-        SwapRC:Add
+        SwapRC:Display
     </title>
     <body>
-            <h1>Add : $category</h1>
-            <h2>857</h2>
+            <h1>Display : $category</h1>
+            <h2>501</h2>
             <form action="./add_interface_old.php" method="post">
             
             <br>
@@ -427,7 +387,7 @@ echo <<<_END
                 <tr border=4 height=95%>
                     <td width = 80% border=2 bgcolor="#ccffff" valign=top height=95%>
                         [
-                        <b><a href="./add_interface_old.php">Add</a></b> |
+                        <b><a href="./add_interface.php">Add</a></b> |
                         <a href="./search_interface.php">Search</a>
                         ]
                         
